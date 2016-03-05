@@ -12,10 +12,10 @@
 require 'rest-client'
 require 'json'
 
-API_HOST = 'api.splunkstorm.com'
+API_HOST = 'api.splunkstorm.com'.freeze
 API_VERSION = 1
-API_ENDPOINT = 'inputs/http'
-URL_SCHEME = 'https'
+API_ENDPOINT = 'inputs/http'.freeze
+URL_SCHEME = 'https'.freeze
 
 module Sensu
   class Handler
@@ -40,7 +40,7 @@ module Sensu
     def alert
       refresh = (60.fdiv(@event['check']['interval']) * 30).to_i
       # #YELLOW
-      if @event['occurrences'] == 1 || @event['occurrences'] % refresh == 0  # rubocop:disable GuardClause
+      if @event['occurrences'] == 1 || @event['occurrences'] % refresh == 0 # rubocop:disable GuardClause
         splunkstorm
       end
     end

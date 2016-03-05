@@ -1,19 +1,33 @@
 language: ruby
 cache:
-  - bundler
+- bundler
 install:
-  - bundle install
+- bundle install
 rvm:
-  - 1.9.3
-  - 2.0
-  - 2.1
-  - 2.2
+- 1.9.3
+- 2.0
+- 2.1
+- 2.2
 notifications:
   email:
     recipients:
-      - sensu-plugin@sensu-plugins.io
+    - sensu-plugin@sensu-plugins.io
     on_success: change
     on_failure: always
-
 script:
-  - 'bundle exec rake default'
+- bundle exec rake default
+- gem build sensu-plugins-splunk.gemspec
+- gem install sensu-plugins-splunk-*.gem
+deploy:
+  provider: rubygems
+  api_key:
+    secure: RbwAFnPqF3YcWfGlbIds+hXnnfgVeSWiq9j1Q1NVx5mV/dLN246ipfrNXvKChZZPfNCWzM+80E650llt4ahsMk4FCRMxPB7CXhn4CgY0Z1dgSdtyR0Gp57n6o9l9iecQ1LI/7l0Bsu7TlqcV2wOUPvOXF1QpGVpDFYx/jVvPZnw=
+  gem: sensu-plugins-splunk
+  on:
+    ags: true
+    all_branches: true
+    rvm: 1.9.3
+    rvm: 2.0
+    rvm: 2.1
+    rvm: 2.2
+    repo: sensu-plugins/sensu-plugins-splunk
