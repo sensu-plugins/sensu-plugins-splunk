@@ -30,8 +30,7 @@ module Sensu
     end
 
     def filter
-      # #YELLOW
-      if @event['check']['alert'] == false # rubocop:disable GuardClause
+      if @event['check']['alert'] == false
         puts 'alert disabled -- filtered event ' + [@event['client']['name'], @event['check']['name']].join(' : ')
         exit 0
       end
