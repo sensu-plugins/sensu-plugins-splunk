@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
   s.version                = SensuPluginsSplunk::Version::VER_STRING
 
   s.add_runtime_dependency 'sensu-plugin', '~> 1.2'
-  s.add_runtime_dependency 'json',         '1.8.6'
+  s.add_runtime_dependency 'json',         '= 2.1.0'
   s.add_runtime_dependency 'rest-client',  '1.8.0'
 
   s.add_development_dependency 'codeclimate-test-reporter', '~> 0.4'
