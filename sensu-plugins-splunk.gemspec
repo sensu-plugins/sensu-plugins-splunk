@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
   s.test_files             = s.files.grep(%r{^(test|spec|features)/})
   s.version                = SensuPluginsSplunk::Version::VER_STRING
 
-  s.add_runtime_dependency 'sensu-plugin', '~> 1.2'
+  s.add_runtime_dependency 'sensu-plugin', '>= 1.2', '< 5.0'
   s.add_runtime_dependency 'json',         '1.8.6'
   s.add_runtime_dependency 'rest-client',  '1.8.0'
 
